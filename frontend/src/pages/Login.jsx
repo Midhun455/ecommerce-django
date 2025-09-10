@@ -18,23 +18,28 @@ function Login() {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/login/", formData);
+      // ✅ Get JWT tokens
+      const res = await axios.post("http://localhost:8000/api/token/", formData);
       const { access, refresh } = res.data;
 
+      // ✅ Get user info using access token
       const userRes = await axios.get("http://localhost:8000/api/auth/me/", {
         headers: { Authorization: `Bearer ${access}` },
       });
 
       const user = userRes.data;
+
+      // ✅ Store tokens + user in context/localStorage
       login(access, refresh, user.username, user.is_admin);
 
+      // ✅ Redirect
       if (user.is_admin) {
         navigate("/admin-dashboard");
       } else {
         navigate("/");
       }
     } catch (err) {
-      console.error("❌ Login failed:", err);
+      console.error("❌ Login failed:", err.response?.data || err.message);
       setError("Login failed. Check credentials.");
     }
   };
