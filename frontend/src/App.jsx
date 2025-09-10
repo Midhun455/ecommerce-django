@@ -25,7 +25,8 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminUsers from "./pages/admin/AdminUsers";
 
-const stripePromise = loadStripe("YOUR_PUBLIC_KEY_HERE");
+const stripePublicKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+const stripePromise = loadStripe(stripePublicKey);
 
 
 function Navbar() {
