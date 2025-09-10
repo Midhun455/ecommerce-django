@@ -25,7 +25,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminUsers from "./pages/admin/AdminUsers";
 
-const stripePromise = loadStripe("pk_test_51S5OKBFZXhUOwaMYFjTN8ur2TK7LV59XAtHjUYuRdgUhj2LhdnhPuvqmktRebe86v9zxAC01JxgDFrIWvTDjY8ZA00jMIsb5Hn");
+const stripePromise = loadStripe("YOUR_PUBLIC_KEY_HERE");
 
 
 function Navbar() {

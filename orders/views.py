@@ -39,7 +39,7 @@ class OrderViewSet(viewsets.ModelViewSet):
             raise PermissionDenied("Not allowed to delete this order")
 
 
-stripe.api_key = "sk_test_51S5OKBFZXhUOwaMYlECZypnbzaL2TDY9S2QkwBzHn3DN8KXOKuAODp91T78q2qUXSWJMIkLXdCDsFCM1zx7Bd1YF00VVdmhvl9"  # your secret key
+stripe.api_key = "YOUR_STRIPE_SECRET_KEY"  # your secret key
 
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
